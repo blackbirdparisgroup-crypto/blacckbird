@@ -42,6 +42,10 @@ temp/
 .cache/
 .eslintcache
 
-# Tests
-*.test.js
-*.spec.js
+# Tests (ignore compiled only, not source)
+# Test sources should be tracked:
+# - tests/**/*.js (tracked)
+# - src/**/*.test.js (tracked)
+# Generated test reports only:
+test-results/
+junit.xml
