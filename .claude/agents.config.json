@@ -1,0 +1,118 @@
+{
+  "project": "Blackbird",
+  "multiAgentMode": true,
+  "agents": [
+    {
+      "id": "agent-backend",
+      "name": "Agent Backend/Core",
+      "role": "Infrastructure & Business Logic",
+      "responsibilities": [
+        "Architecture globale",
+        "Logique métier",
+        "APIs & données",
+        "Sécurité & performance"
+      ],
+      "directories": [
+        "src/core/",
+        "src/api/",
+        "src/services/"
+      ],
+      "commitPrefix": ["feat/core:", "fix/core:", "refactor/core:"],
+      "gitWorkflow": {
+        "branch": "claude/3-dev-agents-project-yphrrv",
+        "pushStrategy": "atomic-commits",
+        "testRequired": true,
+        "reviewRequired": false
+      }
+    },
+    {
+      "id": "agent-frontend",
+      "name": "Agent Frontend/UI",
+      "role": "User Interface & Experience",
+      "responsibilities": [
+        "Interface utilisateur",
+        "Composants visuels",
+        "Intégration APIs",
+        "Responsive design"
+      ],
+      "directories": [
+        "src/ui/",
+        "src/components/",
+        "public/"
+      ],
+      "commitPrefix": ["feat/ui:", "fix/ui:", "refactor/ui:"],
+      "gitWorkflow": {
+        "branch": "claude/3-dev-agents-project-yphrrv",
+        "pushStrategy": "atomic-commits",
+        "testRequired": true,
+        "reviewRequired": false
+      }
+    },
+    {
+      "id": "agent-qa",
+      "name": "Agent QA/Tests",
+      "role": "Quality & Documentation",
+      "responsibilities": [
+        "Tests unitaires",
+        "Tests d'intégration",
+        "Documentation",
+        "CI/CD & validation",
+        "Performance & monitoring"
+      ],
+      "directories": [
+        "tests/",
+        "docs/",
+        ".github/",
+        "coverage/"
+      ],
+      "commitPrefix": ["test:", "docs:", "ci:", "perf:"],
+      "gitWorkflow": {
+        "branch": "claude/3-dev-agents-project-yphrrv",
+        "pushStrategy": "atomic-commits",
+        "testRequired": true,
+        "reviewRequired": false
+      }
+    }
+  ],
+  "sharedRules": {
+    "workflowStages": [
+      "analyse",
+      "development",
+      "verification",
+      "versioning"
+    ],
+    "errorHandling": {
+      "approach": "fail-fast",
+      "rollbackOnError": true,
+      "analyzeBeforeContinuing": true
+    },
+    "codeQuality": {
+      "minCodeCoverage": 0.8,
+      "lintRequired": true,
+      "formatRequired": true,
+      "typeCheckRequired": true
+    },
+    "gitRules": {
+      "commitsAtomic": true,
+      "commitMessageFormat": "type: description",
+      "noForceUpdate": true,
+      "requireTests": true,
+      "requireDocs": false
+    }
+  },
+  "coordination": {
+    "method": "git-based",
+    "branch": "claude/3-dev-agents-project-yphrrv",
+    "mergeStrategy": "atomic-per-feature",
+    "conflictResolution": "manual-with-all-agents",
+    "syncFrequency": "after-each-push"
+  },
+  "statusChecks": {
+    "ci": true,
+    "codeQuality": true,
+    "coverage": true,
+    "documentation": false
+  },
+  "createdAt": "2026-09-05",
+  "lastUpdated": "2026-09-05"
+}

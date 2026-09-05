@@ -1,0 +1,66 @@
+{
+  "projectName": "Blackbird - Multi-Agent Development",
+  "mode": "multi-agent",
+  "agents": {
+    "count": 3,
+    "specialization": true,
+    "coordination": "git-based"
+  },
+  "developmentBranch": "claude/3-dev-agents-project-yphrrv",
+  "mainBranch": "main",
+  "workflow": {
+    "analysisRequired": true,
+    "testingRequired": true,
+    "documentationRequired": false,
+    "reviewRequired": false,
+    "atomicCommits": true
+  },
+  "errorHandling": {
+    "failFast": true,
+    "rollbackOnError": true,
+    "preserveHistory": true
+  },
+  "permissions": {
+    "git": {
+      "push": true,
+      "merge": true,
+      "forceUpdate": false,
+      "deleteRemote": false
+    },
+    "files": {
+      "write": true,
+      "delete": false,
+      "modifyConfig": true
+    },
+    "ci": {
+      "runTests": true,
+      "deployStaging": false,
+      "deployProduction": false
+    }
+  },
+  "hooks": {
+    "preCommit": {
+      "enabled": false
+    },
+    "preMerge": {
+      "enabled": true,
+      "requireTests": true,
+      "requireDocs": false
+    },
+    "prePush": {
+      "enabled": true,
+      "runTests": true
+    }
+  },
+  "notifications": {
+    "pushSuccess": true,
+    "testFailure": true,
+    "conflictDetected": true,
+    "mergeNeeded": true
+  },
+  "codeQuality": {
+    "minCoverage": 0.8,
+    "strictMode": true,
+    "lintOnSave": true
+  }
+}
